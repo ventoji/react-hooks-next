@@ -40,6 +40,16 @@ const SignMeUp = ({ signupCallback }) => {
 
   const buttonText = sendProcessing ? "processing..." : "Get Updates";
 
+  if(context.loggedInUserEmail){
+    return(
+      <div className="container">
+        <div className="content">
+        <span> Logged in user Email: {context.loggedInUserEmail}</span> &nbsp; &nbsp;
+         <a href='/logout'> Logout</a>
+        </div>
+      </div>
+    );
+  }
   //console.log("src/SignMeUp called");
 
   return context.showSignMeUp === false ? null : (
@@ -67,6 +77,7 @@ const SignMeUp = ({ signupCallback }) => {
           >
             {buttonText}
           </button>
+          &nbsp; &nbsp; <a href='/login'> Login</a>
         </div>
       </div>
     </div>
